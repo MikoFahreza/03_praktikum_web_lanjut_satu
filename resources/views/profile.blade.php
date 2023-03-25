@@ -20,19 +20,22 @@
                         src="{{ asset ('assets/dist/img/FotoKTM.jpg') }}" alt="User profile picture">
                     </div>
                     
-                    <h3 class="profile-username text-center">{{ $nama }}</h3>
+                    @foreach($profile as $a)
+                    <h3 class="profile-username text-center">{{ $a -> nama }}</h3>
+                    <p class="text-muted text-center">{{ $a -> jurusan }}</p>
                     
                     <ul class="list-group list-group-unbordered mb-3">
                         <li class="list-group-item">
-                            <b>NIM</b> <a class="float-right">{{ $nim }}</a>
+                            <b>NIM</b> <a class="float-right">{{ $a -> nim }}</a>
                         </li>
                         <li class="list-group-item">
-                            <b>Kelas</b> <a class="float-right">{{ $kelas }}</a>
+                            <b>Kelas</b> <a class="float-right">{{ $a -> kelas }}</a>
                         </li>
                         <li class="list-group-item">
-                            <b>Nomor Absen</b> <a class="float-right">{{ $absen }}</a>
+                            <b>Nomor Absen</b> <a class="float-right">{{ $a -> nomorAbsen }}</a>
                         </li>
                     </ul>
+                    @endforeach
                 </div>
                 <!-- /.card-body -->
                 <!-- /.card-footer-->

@@ -9,6 +9,7 @@ use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PengalamanKuliahController;
+use App\Http\Controllers\JadwalPerkuliahanController;
 
 Route::get('/', function () {
     return view('app');
@@ -18,6 +19,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index']); 
+Route::get('/jadwalPerkuliahan', [JadwalPerkuliahanController::class, 'index'])->name('jadwalPerkuliahan');
 
 Route::prefix('products')->group(function(){
     Route::get('/', [ProductController::class, 'index']);
@@ -34,7 +36,9 @@ Route::prefix('program')->group(function(){
     Route::get('/pemerintah', [ProgramController::class, 'pemerintah']);
 });
 
-Route::get('/about-us', [AboutUsController::class, 'index']); 
+Route::get('/about-us', function() {
+    return view('about-us');
+});
 
 Route::resource('/contact-us', ContactUsController::class) -> only(["index"]); 
 
